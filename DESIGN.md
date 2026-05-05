@@ -1,459 +1,149 @@
 # Design System
 
-This document defines the visual design system for the project. All new components and pages **must** follow these tokens, patterns, and conventions.
+This project uses a dark-first "founder war-room / blueprint desk" visual system. Interfaces should feel like an editorial planning surface: dramatic, tactical, precise, and highly usable.
 
 ---
 
 ## Stack
 
-- **Framework:** Next.js (App Router) + React + TypeScript
-- **Styling:** Tailwind CSS v4 (CSS-first config via `@theme inline` in `globals.css` — no `tailwind.config.ts`)
-- **Components:** shadcn/ui (new-york style, neutral base)
+- **Framework:** Next.js App Router + React + TypeScript
+- **Styling:** Tailwind CSS v4 via `@theme inline` in `app/globals.css`
+- **Components:** shadcn-style primitives in `components/ui`
 - **Icons:** Lucide React
-- **Fonts:** Geist (sans) + Geist Mono (mono) via `next/font/google`
-- **Dark mode:** next-themes (class-based, system default)
-- **Utilities:** `cn()` from `@/lib/utils` (clsx + tailwind-merge)
+- **Fonts:** IBM Plex Sans for UI, Fraunces for display headings, IBM Plex Mono for technical labels/code
+- **Dark mode:** `next-themes`, class-based, dark default
+- **Utilities:** `cn()` from `@/lib/utils`
 
 ---
 
-## Colors
+## Visual Direction
 
-All values use the **oklch** color space. Colors are defined as CSS custom properties in `globals.css` and bridged to Tailwind via `@theme inline`.
+The app is a live AI planning desk, not a generic SaaS dashboard.
 
-### Semantic Tokens
+- Use dark ink backgrounds, warm paper overlays, amber command accents, teal graph highlights, and occasional violet depth.
+- Use glassy panels over a visible blueprint grid texture.
+- Prefer large editorial display headings with tight tracking.
+- Make controls feel tactile: rounded pills, inner shadows, subtle lift on hover, and visible focus rings.
+- Avoid generic purple/white gradients, flat gray panels, and default-looking dashboards.
 
-| Token                  | Light                        | Dark                         | Usage                         |
-| ---------------------- | ---------------------------- | ---------------------------- | ----------------------------- |
-| `background`           | `oklch(1 0 0)`               | `oklch(0.141 0.005 285.823)` | Page background               |
-| `foreground`           | `oklch(0.141 0.005 285.823)` | `oklch(0.985 0 0)`           | Primary text                  |
-| `primary`              | `oklch(0.21 0.034 270)`      | `oklch(0.92 0.02 270)`       | Buttons, links, accents       |
-| `primary-foreground`   | `oklch(0.985 0 0)`           | `oklch(0.21 0.006 285.885)`  | Text on primary               |
-| `secondary`            | `oklch(0.967 0.001 286.375)` | `oklch(0.274 0.006 286.033)` | Secondary buttons, subtle bg  |
-| `secondary-foreground` | `oklch(0.21 0.006 285.885)`  | `oklch(0.985 0 0)`           | Text on secondary             |
-| `muted`                | `oklch(0.967 0.001 286.375)` | `oklch(0.274 0.006 286.033)` | Subdued backgrounds           |
-| `muted-foreground`     | `oklch(0.552 0.016 285.938)` | `oklch(0.705 0.015 286.067)` | Subdued text, placeholders    |
-| `accent`               | `oklch(0.96 0.012 270)`      | `oklch(0.28 0.018 270)`      | Hover backgrounds, highlights |
-| `accent-foreground`    | `oklch(0.21 0.006 285.885)`  | `oklch(0.985 0 0)`           | Text on accent                |
-| `destructive`          | `oklch(0.577 0.245 27.325)`  | `oklch(0.704 0.191 22.216)`  | Error states, delete actions  |
-| `card`                 | `oklch(1 0 0)`               | `oklch(0.21 0.006 285.885)`  | Card backgrounds              |
-| `card-foreground`      | `oklch(0.141 0.005 285.823)` | `oklch(0.985 0 0)`           | Card text                     |
-| `popover`              | `oklch(1 0 0)`               | `oklch(0.21 0.006 285.885)`  | Popover/dropdown bg           |
-| `popover-foreground`   | `oklch(0.141 0.005 285.823)` | `oklch(0.985 0 0)`           | Popover/dropdown text         |
-| `border`               | `oklch(0.92 0.004 286.32)`   | `oklch(1 0 0 / 10%)`         | Borders, dividers             |
-| `input`                | `oklch(0.92 0.004 286.32)`   | `oklch(1 0 0 / 15%)`         | Input borders                 |
-| `ring`                 | `oklch(0.705 0.06 270)`      | `oklch(0.552 0.05 270)`      | Focus rings                   |
+---
 
-### Chart Colors
+## Tokens
 
-| Token     | Light                       | Dark                         |
-| --------- | --------------------------- | ---------------------------- |
-| `chart-1` | `oklch(0.646 0.222 41.116)` | `oklch(0.488 0.243 264.376)` |
-| `chart-2` | `oklch(0.6 0.118 184.704)`  | `oklch(0.696 0.17 162.48)`   |
-| `chart-3` | `oklch(0.398 0.07 227.392)` | `oklch(0.769 0.188 70.08)`   |
-| `chart-4` | `oklch(0.828 0.189 84.429)` | `oklch(0.627 0.265 303.9)`   |
-| `chart-5` | `oklch(0.769 0.188 70.08)`  | `oklch(0.645 0.246 16.439)`  |
+All semantic tokens live in `app/globals.css` and are bridged to Tailwind with `@theme inline`.
 
-### Sidebar Colors
+| Token | Light | Dark | Usage |
+| --- | --- | --- | --- |
+| `background` | `oklch(0.94 0.032 86)` | `oklch(0.15 0.038 252)` | Page canvas |
+| `foreground` | `oklch(0.19 0.029 252)` | `oklch(0.94 0.034 88)` | Primary text |
+| `card` | `oklch(0.985 0.026 92 / 84%)` | `oklch(0.205 0.044 252 / 78%)` | Glass/paper panels |
+| `primary` | `oklch(0.68 0.165 55)` | `oklch(0.78 0.16 61)` | Amber command actions |
+| `accent` | `oklch(0.78 0.122 174)` | `oklch(0.77 0.134 178)` | Teal highlights and graph energy |
+| `secondary` | `oklch(0.86 0.055 184 / 80%)` | `oklch(0.25 0.06 244 / 74%)` | Secondary surfaces |
+| `muted` | `oklch(0.88 0.03 84 / 68%)` | `oklch(0.26 0.052 252 / 64%)` | Subtle surfaces |
+| `muted-foreground` | `oklch(0.42 0.036 252)` | `oklch(0.73 0.042 88)` | Supporting copy |
+| `border` | `oklch(0.24 0.035 252 / 18%)` | `oklch(0.98 0.02 88 / 14%)` | Panel and input borders |
+| `ring` | `oklch(0.76 0.14 174)` | `oklch(0.8 0.15 178)` | Focus rings |
+| `destructive` | `oklch(0.58 0.21 31)` | `oklch(0.68 0.21 31)` | Delete/error actions |
 
-| Token                        | Light                        | Dark                         |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| `sidebar`                    | `oklch(0.985 0 0)`           | `oklch(0.21 0.006 285.885)`  |
-| `sidebar-foreground`         | `oklch(0.141 0.005 285.823)` | `oklch(0.985 0 0)`           |
-| `sidebar-primary`            | `oklch(0.21 0.006 285.885)`  | `oklch(0.488 0.243 264.376)` |
-| `sidebar-primary-foreground` | `oklch(0.985 0 0)`           | `oklch(0.985 0 0)`           |
-| `sidebar-accent`             | `oklch(0.967 0.001 286.375)` | `oklch(0.274 0.006 286.033)` |
-| `sidebar-accent-foreground`  | `oklch(0.21 0.006 285.885)`  | `oklch(0.985 0 0)`           |
-| `sidebar-border`             | `oklch(0.92 0.004 286.32)`   | `oklch(1 0 0 / 10%)`         |
-| `sidebar-ring`               | `oklch(0.705 0.015 286.067)` | `oklch(0.552 0.016 285.938)` |
-
-### Ad-hoc Status Colors
-
-Use these Tailwind utilities for status indicators — they are not part of the token system but are used consistently:
-
-- **Success:** `text-green-600` / `dark:text-green-400`, `bg-green-500`
-- **Error:** `text-red-600`, `text-destructive`
+Chart colors use amber, teal, violet, coral, and green variants from `chart-1` through `chart-5`.
 
 ---
 
 ## Typography
 
-### Font Families
+| Token | Font | Usage |
+| --- | --- | --- |
+| `--font-body` | IBM Plex Sans | Body text, controls, forms |
+| `--font-display-family` | Fraunces | Hero headings, card titles, empty states |
+| `--font-code` | IBM Plex Mono | Model names, labels, code blocks, technical metadata |
 
-| Token               | Font       | Usage                         |
-| ------------------- | ---------- | ----------------------------- |
-| `--font-geist-sans` | Geist      | All UI text (applied to body) |
-| `--font-geist-mono` | Geist Mono | Code, monospace content       |
+Guidelines:
 
-Body has `font-feature-settings: "rlig" 1, "calt" 1` and `antialiased` enabled.
-
-### Type Scale
-
-| Class       | Size | Usage                                              |
-| ----------- | ---- | -------------------------------------------------- |
-| `text-xs`   | 12px | Timestamps, shortcuts, helper text, code           |
-| `text-sm`   | 14px | Descriptions, labels, body copy, card descriptions |
-| `text-base` | 16px | Base text, inputs (mobile)                         |
-| `text-lg`   | 18px | Dialog titles, sub-headings                        |
-| `text-xl`   | 20px | Section titles, header logo                        |
-| `text-2xl`  | 24px | Page titles, card titles                           |
-| `text-3xl`  | 30px | Dashboard/profile headings                         |
-| `text-4xl`  | 36px | Large display text                                 |
-| `text-5xl`  | 48px | Hero title                                         |
-
-### Font Weights
-
-| Class           | Weight | Usage                                                |
-| --------------- | ------ | ---------------------------------------------------- |
-| `font-medium`   | 500    | Buttons, labels, nav items                           |
-| `font-semibold` | 600    | Card titles, section headings, badges, dialog titles |
-| `font-bold`     | 700    | Page titles, hero heading                            |
-
-### Line Heights & Tracking
-
-| Class             | Usage                 |
-| ----------------- | --------------------- |
-| `leading-none`    | Labels, card titles   |
-| `leading-5`       | Code blocks           |
-| `leading-6`       | List items            |
-| `leading-7`       | Paragraphs (markdown) |
-| `tracking-tight`  | Hero/display text     |
-| `tracking-widest` | Keyboard shortcuts    |
+- Hero headings use `font-display`, very tight tracking, and large scale (`text-5xl` to `text-8xl`).
+- Card titles use `font-display text-xl font-bold tracking-tight`.
+- Technical eyebrows use `.micro-label`: mono, uppercase, wide tracking.
+- Body copy should stay readable with `leading-7` or `leading-8`.
 
 ---
 
-## Spacing
+## Core Utilities
 
-### Container Pattern
+Defined in `app/globals.css`:
 
-```
-container mx-auto px-4
-```
-
-Responsive overrides where needed:
-
-- Header: `px-3 sm:px-4`
-- Footer: `px-4 sm:px-6 lg:px-8`
-
-### Max Widths
-
-| Class       | Value | Usage                             |
-| ----------- | ----- | --------------------------------- |
-| `max-w-sm`  | 24rem | Auth forms                        |
-| `max-w-md`  | 28rem | Login/register cards, error pages |
-| `max-w-lg`  | 32rem | Dialog content (sm+)              |
-| `max-w-2xl` | 42rem | Large dialogs                     |
-| `max-w-3xl` | 48rem | Embeds, protected state           |
-| `max-w-4xl` | 56rem | Main content pages                |
-
-### Vertical Spacing (space-y)
-
-| Class         | Usage                           |
-| ------------- | ------------------------------- |
-| `space-y-1`   | Tight lists, inline stacks      |
-| `space-y-1.5` | Card header                     |
-| `space-y-2`   | Form field groups, small stacks |
-| `space-y-3`   | Footer stacks                   |
-| `space-y-4`   | Form sections, dialog content   |
-| `space-y-6`   | Card content sections           |
-| `space-y-8`   | Page-level sections             |
-
-### Padding
-
-| Class | Usage                                  |
-| ----- | -------------------------------------- |
-| `p-1` | Dropdown content, icon buttons         |
-| `p-2` | Code blocks, muted backgrounds         |
-| `p-3` | Chat bubbles, inputs                   |
-| `p-4` | Grid items, action buttons, list items |
-| `p-6` | Cards, dialog content                  |
-
-### Page Vertical Padding
-
-| Class          | Usage                  |
-| -------------- | ---------------------- |
-| `py-3 sm:py-4` | Header                 |
-| `py-4 sm:py-6` | Footer                 |
-| `py-8`         | Standard content pages |
-| `py-12`        | Home page, dashboard   |
-| `py-16`        | Error/not-found pages  |
+- `.planner-bg`: layered blueprint grid, amber orb, teal orb, violet depth glow.
+- `.glass-panel`: high-impact translucent hero/header panel with inner highlight.
+- `.paper-card`: default card treatment with translucent surface and deep shadow.
+- `.blueprint-surface`: compact grid surface for graphs and empty states.
+- `.command-strip`: amber-to-teal-to-violet strip used for command moments.
+- `.micro-label`: technical uppercase label style.
 
 ---
 
-## Border Radius
+## Components
 
-| Token         | Value                         | Class          |
-| ------------- | ----------------------------- | -------------- |
-| `--radius`    | `0.625rem` (10px)             | Base           |
-| `--radius-sm` | `calc(--radius - 4px)` = 6px  | `rounded-sm`   |
-| `--radius-md` | `calc(--radius - 2px)` = 8px  | `rounded-md`   |
-| `--radius-lg` | `var(--radius)` = 10px        | `rounded-lg`   |
-| `--radius-xl` | `calc(--radius + 4px)` = 14px | `rounded-xl`   |
-| —             | 9999px                        | `rounded-full` |
+### Cards
 
-**Usage:**
+Cards are rounded, translucent, and tactile.
 
-- `rounded-md` — Buttons, inputs, textarea, code blocks, dropdowns
-- `rounded-lg` — Cards, dialogs, feature cards, chat bubbles
-- `rounded-xl` — Hero logo container
-- `rounded-full` — Badges, avatars
+Use:
 
----
-
-## Shadows
-
-| Class       | Usage                                       |
-| ----------- | ------------------------------------------- |
-| `shadow-xs` | Inputs, textarea, secondary/outline buttons |
-| `shadow-sm` | Card base                                   |
-| `shadow-md` | Card hover, dropdown content                |
-| `shadow-lg` | Dialogs, dropdown sub-content               |
-
-No custom shadow definitions — all Tailwind defaults.
-
----
-
-## Animations
-
-### Custom Keyframes
-
-| Name       | Effect                              | Duration | Easing   |
-| ---------- | ----------------------------------- | -------- | -------- |
-| `fade-in`  | Opacity 0 → 1                       | 0.3s     | ease-out |
-| `fade-up`  | Opacity 0 → 1 + translateY(8px → 0) | 0.4s     | ease-out |
-| `scale-in` | Opacity 0 → 1 + scale(0.97 → 1)     | 0.2s     | ease-out |
-
-Use via: `animate-fade-in`, `animate-fade-up`, `animate-scale-in`
-
-### tw-animate-css Animations
-
-Used on dialogs and dropdowns:
-
-- `animate-in` / `animate-out`
-- `fade-in-0` / `fade-out-0`
-- `zoom-in-95` / `zoom-out-95`
-- `slide-in-from-{top|bottom|left|right}-2`
-
-### Transition Classes
-
-| Class                           | Usage                           |
-| ------------------------------- | ------------------------------- |
-| `transition-colors`             | Links, hover color changes      |
-| `transition-opacity`            | Avatar hover, reveal-on-hover   |
-| `transition-all duration-200`   | Card interactive hover, buttons |
-| `transition-[color,box-shadow]` | Input/textarea focus            |
-
-### Utility Classes
-
-```css
-.card-interactive {
-  @apply transition-all duration-200 ease-out;
-}
-.card-interactive:hover {
-  @apply shadow-md -translate-y-0.5;
-}
+```tsx
+<Card className="overflow-hidden">
 ```
 
-```css
-.auth-bg {
-  background-image: radial-gradient(
-    circle at 50% 0%,
-    var(--accent) 0%,
-    transparent 50%
-  );
-}
-```
+Avoid plain white/gray cards. Nested item cards should use `bg-background/30`, borders, backdrop blur, and inner shadow.
+
+### Buttons
+
+Primary buttons use `.command-strip`, pill radius, bold type, and hover lift. Outline buttons are translucent and should reveal amber/teal on hover.
+
+### Inputs
+
+Inputs and textareas use rounded-xl, translucent backgrounds, inner shadows, and strong teal focus rings. They should feel embedded in the planning surface.
+
+### Badges
+
+Badges are mono, uppercase, wide-tracked pills. Use them for system state, streaming mode, and model metadata.
+
+### Graphs
+
+Graph containers use `.blueprint-surface`. React Flow nodes should look like mini glass cards, with teal edge strokes and compact mono field lists.
 
 ---
 
 ## Layout
 
-### Root Structure
+Use a wide planning workspace:
 
-```
-<body class="antialiased min-h-screen flex flex-col">
-  <SiteHeader />
-  <main id="main-content" class="flex-1">{children}</main>
-  <SiteFooter />
-  <Toaster />
-</body>
+```tsx
+<main className="planner-bg min-h-screen flex-1 overflow-hidden">
+  <div className="container mx-auto max-w-[1500px] px-4 py-8 lg:py-12">
 ```
 
-### Page Layout Patterns
+The main planner grid uses a sticky left command/graph rail and a wider right editing workspace:
 
-**Auth pages:**
-
-```
-flex min-h-[calc(100vh-4rem)] items-center justify-center p-4
-  → Card w-full max-w-md
+```tsx
+grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.35fr)]
 ```
 
-**Standard content pages:**
-
-```
-container mx-auto px-4 py-8
-  → max-w-4xl mx-auto
-```
-
-**Error/not-found pages:**
-
-```
-container mx-auto px-4 py-16
-  → max-w-md mx-auto text-center
-```
-
-### Grid Patterns
-
-| Pattern                                                | Usage                 |
-| ------------------------------------------------------ | --------------------- |
-| `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6` | Feature cards (4-col) |
-| `grid grid-cols-1 md:grid-cols-2 gap-6`                | Dashboard cards       |
-| `grid grid-cols-1 md:grid-cols-2 gap-4`                | Profile info          |
-| `grid grid-cols-1 md:grid-cols-3 gap-4`                | Quick actions         |
-
-### Responsive Breakpoints
-
-Standard Tailwind breakpoints:
-
-- `sm:` (640px) — Padding adjustments, text alignment, button sizing
-- `md:` (768px) — Grid column changes (→ 2 col), input font size
-- `lg:` (1024px) — Grid column changes (→ 4 col), wide padding
+Mobile remains single-column with no sticky behavior.
 
 ---
 
-## Icons
+## Interaction
 
-**Library:** Lucide React
-
-### Sizing Convention
-
-| Size    | Classes               | Usage                           |
-| ------- | --------------------- | ------------------------------- |
-| XS      | `h-3 w-3`             | Inline badge icons              |
-| SM      | `h-3.5 w-3.5`         | Copy buttons                    |
-| Default | `h-4 w-4` or `size-4` | Standard UI icons               |
-| MD      | `h-5 w-5`             | Header logo icon                |
-| LG      | `h-7 w-7`             | Hero logo icon                  |
-| XL      | `h-16 w-16`           | Error/empty state illustrations |
-
-### Commonly Used Icons
-
-`Bot`, `User`, `Lock`, `Shield`, `Mail`, `Calendar`, `Copy`, `Check`, `Loader2`, `LogOut`, `Sun`, `Moon`, `Github`, `ArrowLeft`, `RefreshCw`, `AlertCircle`, `FileQuestion`, `Database`, `Palette`, `Video`
+- Hover lift: `hover:-translate-y-0.5`
+- Focus: `focus-visible:ring-ring/50 focus-visible:ring-[3px]`
+- Disabled: `disabled:pointer-events-none disabled:opacity-50`
+- Page entrance: `animate-fade-up` and `animate-scale-in`
+- Keep motion subtle and purposeful; avoid decorative loops that distract from editing.
 
 ---
 
-## Components (shadcn/ui)
+## Accessibility
 
-All components live in `src/components/ui/`. They use `data-slot` attributes, accept `className` for overrides via `cn()`, and follow either `React.forwardRef` or functional component patterns.
-
-### Button
-
-6 variants, 4 sizes (CVA-based):
-
-| Variant       | Usage                 |
-| ------------- | --------------------- |
-| `default`     | Primary actions       |
-| `secondary`   | Secondary actions     |
-| `outline`     | Tertiary actions      |
-| `ghost`       | Subtle/icon actions   |
-| `destructive` | Delete/danger actions |
-| `link`        | Inline text links     |
-
-| Size      | Height | Padding |
-| --------- | ------ | ------- |
-| `sm`      | h-8    | px-3    |
-| `default` | h-9    | px-4    |
-| `lg`      | h-10   | px-6    |
-| `icon`    | size-9 | —       |
-
-### Card
-
-6 sub-components: `Card`, `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`
-
-Base: `rounded-lg border bg-card text-card-foreground shadow-sm`
-
-### Input / Textarea
-
-- Height: `h-9` (input), `min-h-16` (textarea)
-- Border: `border bg-transparent rounded-md shadow-xs`
-- Focus: `focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]`
-- Validation: `aria-invalid:border-destructive aria-invalid:ring-destructive/20`
-- Responsive font: `text-base md:text-sm`
-
-### Badge
-
-4 variants: `default`, `secondary`, `destructive`, `outline`
-
-Base: `rounded-full border px-2.5 py-0.5 text-xs font-semibold`
-
-### Dialog
-
-Radix-based with overlay (`bg-black/50`), fade + zoom animations, optional close button.
-
-### DropdownMenu
-
-Radix-based. Content: `rounded-md border p-1 shadow-md min-w-[8rem]`. Items support a `destructive` variant.
-
-### Spinner
-
-Sizes: `sm` (h-4 w-4), `md` (h-6 w-6), `lg` (h-8 w-8). Uses `Loader2` with `animate-spin`.
-
-### Toast (Sonner)
-
-Custom icons per state (success, info, warning, error, loading). Themed via CSS variable overrides.
-
----
-
-## Focus & Interaction States
-
-### Focus Ring (Global)
-
-```css
-outline-2 outline-offset-2 outline-ring/70
-```
-
-Component-level override:
-
-```
-focus-visible:ring-ring/50 focus-visible:ring-[3px]
-```
-
-### Disabled
-
-```
-disabled:pointer-events-none disabled:opacity-50
-```
-
-### Interactive Card Hover
-
-```
-transition-all duration-200 ease-out
-hover:shadow-md hover:-translate-y-0.5
-```
-
----
-
-## Dark Mode
-
-- **Method:** Class-based via `next-themes` with `attribute="class"` and `disableTransitionOnChange`
-- **Default:** System preference
-- **Toggle:** 3-way dropdown — Light / Dark / System
-- All semantic color tokens swap automatically via `.dark` CSS selector
-- Use `dark:` prefix for component-specific overrides (e.g., `dark:bg-input/30`)
-
----
-
-## Branding
-
-### Logo Text
-
-```
-bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent
-```
-
-### Logo Icon Container
-
-```
-w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center
-```
-
-Hero variant: `w-12 h-12 rounded-xl`
+- Preserve visible focus rings on all interactive controls.
+- Keep text contrast high on translucent panels.
+- Provide text representations for graphs and generated data.
+- Controls must remain usable on mobile, especially add/remove/edit actions.

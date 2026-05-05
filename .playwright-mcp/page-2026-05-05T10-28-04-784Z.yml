@@ -1,0 +1,516 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - generic [ref=e8]:
+            - img [ref=e10]
+            - generic:
+              - img
+              - text: Structured streaming
+            - generic [ref=e13]: Editable blueprint generator
+          - generic [ref=e14]:
+            - heading "Draft the build before the build drafts you." [level=1] [ref=e15]
+            - paragraph [ref=e16]: A live AI planning desk that turns a raw app idea into editable strategy cards, route maps, data models, build phases, and a copy-ready agent prompt.
+        - generic [ref=e17]:
+          - generic [ref=e18]: Default model
+          - generic [ref=e19]: anthropic/claude-sonnet-4.6
+          - generic [ref=e20]:
+            - generic [ref=e21]:
+              - generic [ref=e22]: NDJSON
+              - generic [ref=e23]: Stream
+            - generic [ref=e24]:
+              - generic [ref=e25]: Local
+              - generic [ref=e26]: Draft
+            - generic [ref=e27]:
+              - generic [ref=e28]: Live
+              - generic [ref=e29]: Graph
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - generic [ref=e33]:
+              - generic [ref=e34]:
+                - img [ref=e35]
+                - text: App Idea
+              - generic [ref=e38]: Describe the app in plain language. Existing valid drafts are sent as optional context.
+            - generic [ref=e39]:
+              - 'textbox "Example: A lightweight project planner for solo founders who need a scoped MVP plan before coding." [ref=e40]': A field notes app for indie hackers planning small launches.
+              - generic [ref=e41]:
+                - button "A meal planning app for busy parents that creates weekly grocery lists" [ref=e42]
+                - button "A small CRM for freelance designers to track leads and project phases" [ref=e43]
+                - button "A habit tracker for remote teams with lightweight accountability rituals" [ref=e44]
+              - generic [ref=e45]:
+                - button "Regenerate Brief" [ref=e69]:
+                  - img
+                  - text: Regenerate Brief
+                - button "Reset" [ref=e47]:
+                  - img
+                  - text: Reset
+              - paragraph [ref=e48]: Drafts save locally in this browser only. The API key stays server-side.
+          - generic [ref=e49]:
+            - generic [ref=e50]:
+              - generic [ref=e51]:
+                - img [ref=e52]
+                - text: Data Model Graph
+              - generic [ref=e56]: Read-only visualization derived from the editable data model and relationships.
+            - generic [ref=e57]:
+              - application [ref=e70]:
+                - generic [ref=e72]:
+                  - generic:
+                    - generic:
+                      - img
+                      - img:
+                        - group "Edge from launch to task":
+                          - generic [ref=e449]:
+                            - generic: contains (one-to-many)
+                    - generic:
+                      - group:
+                        - generic:
+                          - generic: Launch
+                          - generic: A planned product launch.
+                          - generic:
+                            - generic: "id: string *"
+                            - generic: "title: string *"
+                      - group:
+                        - generic:
+                          - generic: Task
+                          - generic: A launch task.
+                          - generic:
+                            - generic: "id: string *"
+                            - generic: "status: enum *"
+                - img
+                - generic "Control Panel" [ref=e75]:
+                  - button "Zoom In" [ref=e76] [cursor=pointer]:
+                    - img [ref=e77]
+                  - button "Zoom Out" [ref=e79] [cursor=pointer]:
+                    - img [ref=e80]
+                  - button "Fit View" [ref=e82] [cursor=pointer]:
+                    - img [ref=e83]
+              - generic [ref=e86]:
+                - generic [ref=e87]: Relationship list
+                - generic [ref=e89]: "launch -> task: contains (one-to-many)"
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - generic [ref=e90]:
+              - generic [ref=e91]:
+                - img [ref=e92]
+                - text: Editable Brief
+              - generic [ref=e95]: Every section below is part of the saved local draft.
+            - generic [ref=e97]:
+              - generic [ref=e98]:
+                - generic [ref=e99]: App Name
+                - textbox "App Name" [ref=e100]: Launch Ledger
+              - generic [ref=e101]:
+                - generic [ref=e102]: App Summary
+                - textbox "App Summary" [ref=e103]: A compact planning desk for indie hackers to turn launch ideas into scoped build plans, content tasks, and risk checks.
+          - generic [ref=e104]:
+            - generic [ref=e105]:
+              - generic [ref=e106]:
+                - generic [ref=e107]: Plan section
+                - generic [ref=e108]: Target Users
+                - generic [ref=e109]: Add one audience segment per card.
+              - button "Add" [ref=e110]:
+                - img
+                - text: Add
+            - generic [ref=e111]:
+              - generic [ref=e112]:
+                - button "Remove" [ref=e114]:
+                  - img
+                  - text: Remove
+                - generic [ref=e115]:
+                  - generic [ref=e116]: User Segment 1
+                  - textbox "User Segment 1" [ref=e117]: Solo founders
+              - generic [ref=e118]:
+                - button "Remove" [ref=e120]:
+                  - img
+                  - text: Remove
+                - generic [ref=e121]:
+                  - generic [ref=e122]: User Segment 2
+                  - textbox "User Segment 2" [ref=e123]: Indie hackers
+              - generic [ref=e124]:
+                - button "Remove" [ref=e126]:
+                  - img
+                  - text: Remove
+                - generic [ref=e127]:
+                  - generic [ref=e128]: User Segment 3
+                  - textbox "User Segment 3" [ref=e129]: Product marketers
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - generic [ref=e132]:
+                - generic [ref=e133]: Plan section
+                - generic [ref=e134]: Core Features
+                - generic [ref=e135]: Prioritize the smallest useful feature set.
+              - button "Add" [ref=e136]:
+                - img
+                - text: Add
+            - generic [ref=e137]:
+              - generic [ref=e138]:
+                - button "Remove" [ref=e140]:
+                  - img
+                  - text: Remove
+                - generic [ref=e141]:
+                  - generic [ref=e142]:
+                    - generic [ref=e143]: Name
+                    - textbox "Name" [ref=e144]: Idea intake
+                  - generic [ref=e145]:
+                    - generic [ref=e146]: Priority
+                    - combobox "Priority" [ref=e147]:
+                      - option "Must-have" [selected]
+                      - option "Nice-to-have"
+                - generic [ref=e148]:
+                  - generic [ref=e149]: Description
+                  - textbox "Description" [ref=e150]: Capture a raw launch idea and desired outcome.
+              - generic [ref=e151]:
+                - button "Remove" [ref=e153]:
+                  - img
+                  - text: Remove
+                - generic [ref=e154]:
+                  - generic [ref=e155]:
+                    - generic [ref=e156]: Name
+                    - textbox "Name" [ref=e157]: Launch checklist
+                  - generic [ref=e158]:
+                    - generic [ref=e159]: Priority
+                    - combobox "Priority" [ref=e160]:
+                      - option "Must-have" [selected]
+                      - option "Nice-to-have"
+                - generic [ref=e161]:
+                  - generic [ref=e162]: Description
+                  - textbox "Description" [ref=e163]: Generate phased tasks for build, prelaunch, launch, and follow-up.
+          - generic [ref=e164]:
+            - generic [ref=e165]:
+              - generic [ref=e166]:
+                - generic [ref=e167]: Plan section
+                - generic [ref=e168]: Recommended Tech Stack
+                - generic [ref=e169]: Explain each recommendation in practical terms.
+              - button "Add" [ref=e170]:
+                - img
+                - text: Add
+            - generic [ref=e171]:
+              - generic [ref=e172]:
+                - button "Remove" [ref=e174]:
+                  - img
+                  - text: Remove
+                - generic [ref=e175]:
+                  - generic [ref=e176]:
+                    - generic [ref=e177]: Category
+                    - textbox "Category" [ref=e178]: Framework
+                  - generic [ref=e179]:
+                    - generic [ref=e180]: Recommendation
+                    - textbox "Recommendation" [ref=e181]: Next.js App Router
+                - generic [ref=e182]:
+                  - generic [ref=e183]: Reason
+                  - textbox "Reason" [ref=e184]: Simple full-stack tutorial structure.
+              - generic [ref=e185]:
+                - button "Remove" [ref=e187]:
+                  - img
+                  - text: Remove
+                - generic [ref=e188]:
+                  - generic [ref=e189]:
+                    - generic [ref=e190]: Category
+                    - textbox "Category" [ref=e191]: Styling
+                  - generic [ref=e192]:
+                    - generic [ref=e193]: Recommendation
+                    - textbox "Recommendation" [ref=e194]: Tailwind CSS
+                - generic [ref=e195]:
+                  - generic [ref=e196]: Reason
+                  - textbox "Reason" [ref=e197]: Fast card-based editing interface.
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - generic [ref=e200]:
+                - generic [ref=e201]: Plan section
+                - generic [ref=e202]: Pages And Routes
+                - generic [ref=e203]: Map the screens before implementation starts.
+              - button "Add" [ref=e204]:
+                - img
+                - text: Add
+            - generic [ref=e205]:
+              - generic [ref=e206]:
+                - button "Remove" [ref=e208]:
+                  - img
+                  - text: Remove
+                - generic [ref=e209]:
+                  - generic [ref=e210]:
+                    - generic [ref=e211]: Path
+                    - textbox "Path" [ref=e212]: /
+                  - generic [ref=e213]:
+                    - generic [ref=e214]: Name
+                    - textbox "Name" [ref=e215]: Planning Desk
+                - generic [ref=e216]:
+                  - generic [ref=e217]: Purpose
+                  - textbox "Purpose" [ref=e218]: Primary idea input and editable launch plan.
+              - generic [ref=e219]:
+                - button "Remove" [ref=e221]:
+                  - img
+                  - text: Remove
+                - generic [ref=e222]:
+                  - generic [ref=e223]:
+                    - generic [ref=e224]: Path
+                    - textbox "Path" [ref=e225]: /brief
+                  - generic [ref=e226]:
+                    - generic [ref=e227]: Name
+                    - textbox "Name" [ref=e228]: Brief Export
+                - generic [ref=e229]:
+                  - generic [ref=e230]: Purpose
+                  - textbox "Purpose" [ref=e231]: Copy-ready brief view.
+          - generic [ref=e232]:
+            - generic [ref=e233]:
+              - generic [ref=e234]:
+                - generic [ref=e235]: Plan section
+                - generic [ref=e236]: Data Model
+                - generic [ref=e237]: Entity ids are used by relationships and the graph.
+              - button "Add" [ref=e238]:
+                - img
+                - text: Add
+            - generic [ref=e239]:
+              - generic [ref=e240]:
+                - button "Remove" [ref=e242]:
+                  - img
+                  - text: Remove
+                - generic [ref=e243]:
+                  - generic [ref=e244]:
+                    - generic [ref=e245]: Entity ID
+                    - textbox "Entity ID" [ref=e246]: launch
+                  - generic [ref=e247]:
+                    - generic [ref=e248]: Name
+                    - textbox "Name" [ref=e249]: Launch
+                - generic [ref=e250]:
+                  - generic [ref=e251]: Description
+                  - textbox "Description" [ref=e252]: A planned product launch.
+                - generic [ref=e253]:
+                  - generic [ref=e254]:
+                    - generic [ref=e255]: Fields
+                    - button "Add Field" [ref=e256]:
+                      - img
+                      - text: Add Field
+                  - generic [ref=e257]:
+                    - generic [ref=e258]:
+                      - generic [ref=e259]:
+                        - generic [ref=e260]: Name
+                        - textbox "Name" [ref=e261]: id
+                      - generic [ref=e262]:
+                        - generic [ref=e263]: Type
+                        - textbox "Type" [ref=e264]: string
+                      - generic [ref=e265]:
+                        - checkbox "Required" [checked] [ref=e266]
+                        - text: Required
+                      - button "Remove field" [ref=e267]:
+                        - img
+                        - generic [ref=e268]: Remove field
+                    - generic [ref=e269]:
+                      - generic [ref=e270]: Notes
+                      - textbox "Notes" [ref=e271]: Unique launch id
+                  - generic [ref=e272]:
+                    - generic [ref=e273]:
+                      - generic [ref=e274]:
+                        - generic [ref=e275]: Name
+                        - textbox "Name" [ref=e276]: title
+                      - generic [ref=e277]:
+                        - generic [ref=e278]: Type
+                        - textbox "Type" [ref=e279]: string
+                      - generic [ref=e280]:
+                        - checkbox "Required" [checked] [ref=e281]
+                        - text: Required
+                      - button "Remove field" [ref=e282]:
+                        - img
+                        - generic [ref=e283]: Remove field
+                    - generic [ref=e284]:
+                      - generic [ref=e285]: Notes
+                      - textbox "Notes" [ref=e286]: Launch name
+              - generic [ref=e287]:
+                - button "Remove" [ref=e289]:
+                  - img
+                  - text: Remove
+                - generic [ref=e290]:
+                  - generic [ref=e291]:
+                    - generic [ref=e292]: Entity ID
+                    - textbox "Entity ID" [ref=e293]: task
+                  - generic [ref=e294]:
+                    - generic [ref=e295]: Name
+                    - textbox "Name" [ref=e296]: Task
+                - generic [ref=e297]:
+                  - generic [ref=e298]: Description
+                  - textbox "Description" [ref=e299]: A launch task.
+                - generic [ref=e300]:
+                  - generic [ref=e301]:
+                    - generic [ref=e302]: Fields
+                    - button "Add Field" [ref=e303]:
+                      - img
+                      - text: Add Field
+                  - generic [ref=e304]:
+                    - generic [ref=e305]:
+                      - generic [ref=e306]:
+                        - generic [ref=e307]: Name
+                        - textbox "Name" [ref=e308]: id
+                      - generic [ref=e309]:
+                        - generic [ref=e310]: Type
+                        - textbox "Type" [ref=e311]: string
+                      - generic [ref=e312]:
+                        - checkbox "Required" [checked] [ref=e313]
+                        - text: Required
+                      - button "Remove field" [ref=e314]:
+                        - img
+                        - generic [ref=e315]: Remove field
+                    - generic [ref=e316]:
+                      - generic [ref=e317]: Notes
+                      - textbox "Notes" [ref=e318]: Unique task id
+                  - generic [ref=e319]:
+                    - generic [ref=e320]:
+                      - generic [ref=e321]:
+                        - generic [ref=e322]: Name
+                        - textbox "Name" [ref=e323]: status
+                      - generic [ref=e324]:
+                        - generic [ref=e325]: Type
+                        - textbox "Type" [ref=e326]: enum
+                      - generic [ref=e327]:
+                        - checkbox "Required" [checked] [ref=e328]
+                        - text: Required
+                      - button "Remove field" [ref=e329]:
+                        - img
+                        - generic [ref=e330]: Remove field
+                    - generic [ref=e331]:
+                      - generic [ref=e332]: Notes
+                      - textbox "Notes" [ref=e333]: todo, doing, done
+          - generic [ref=e334]:
+            - generic [ref=e335]:
+              - generic [ref=e336]:
+                - generic [ref=e337]: Plan section
+                - generic [ref=e338]: Relationships
+                - generic [ref=e339]: Connect entities for the graph visualization.
+              - button "Add" [ref=e340]:
+                - img
+                - text: Add
+            - generic [ref=e342]:
+              - button "Remove" [ref=e344]:
+                - img
+                - text: Remove
+              - generic [ref=e345]:
+                - generic [ref=e346]:
+                  - generic [ref=e347]: From Entity
+                  - combobox "From Entity" [ref=e348]:
+                    - option "Select entity"
+                    - option "Launch" [selected]
+                    - option "Task"
+                - generic [ref=e349]:
+                  - generic [ref=e350]: To Entity
+                  - combobox "To Entity" [ref=e351]:
+                    - option "Select entity"
+                    - option "Launch"
+                    - option "Task" [selected]
+                - generic [ref=e352]:
+                  - generic [ref=e353]: Label
+                  - textbox "Label" [ref=e354]: contains
+                - generic [ref=e355]:
+                  - generic [ref=e356]: Cardinality
+                  - combobox "Cardinality" [ref=e357]:
+                    - option "One-to-one"
+                    - option "One-to-many" [selected]
+                    - option "Many-to-many"
+          - generic [ref=e358]:
+            - generic [ref=e359]:
+              - generic [ref=e360]:
+                - generic [ref=e361]: Plan section
+                - generic [ref=e362]: Build Phases
+                - generic [ref=e363]: Break the work into practical milestones.
+              - button "Add" [ref=e364]:
+                - img
+                - text: Add
+            - generic [ref=e365]:
+              - generic [ref=e366]:
+                - button "Remove" [ref=e368]:
+                  - img
+                  - text: Remove
+                - generic [ref=e369]:
+                  - generic [ref=e370]:
+                    - generic [ref=e371]: Name
+                    - textbox "Name" [ref=e372]: MVP Shell
+                  - generic [ref=e373]:
+                    - generic [ref=e374]: Goal
+                    - textbox "Goal" [ref=e375]: Create the planning workspace.
+                - generic [ref=e376]:
+                  - generic [ref=e377]:
+                    - generic [ref=e378]: Tasks
+                    - button "Add Task" [ref=e379]:
+                      - img
+                      - text: Add Task
+                  - generic [ref=e380]:
+                    - textbox [ref=e381]: Build input panel
+                    - button "Remove task" [ref=e382]:
+                      - img
+                      - generic [ref=e383]: Remove task
+                  - generic [ref=e384]:
+                    - textbox [ref=e385]: Add editable cards
+                    - button "Remove task" [ref=e386]:
+                      - img
+                      - generic [ref=e387]: Remove task
+                  - generic [ref=e388]:
+                    - textbox [ref=e389]: Persist draft locally
+                    - button "Remove task" [ref=e390]:
+                      - img
+                      - generic [ref=e391]: Remove task
+              - generic [ref=e392]:
+                - button "Remove" [ref=e394]:
+                  - img
+                  - text: Remove
+                - generic [ref=e395]:
+                  - generic [ref=e396]:
+                    - generic [ref=e397]: Name
+                    - textbox "Name" [ref=e398]: Export
+                  - generic [ref=e399]:
+                    - generic [ref=e400]: Goal
+                    - textbox "Goal" [ref=e401]: Make the plan useful outside the app.
+                - generic [ref=e402]:
+                  - generic [ref=e403]:
+                    - generic [ref=e404]: Tasks
+                    - button "Add Task" [ref=e405]:
+                      - img
+                      - text: Add Task
+                  - generic [ref=e406]:
+                    - textbox [ref=e407]: Generate starter prompt
+                    - button "Remove task" [ref=e408]:
+                      - img
+                      - generic [ref=e409]: Remove task
+                  - generic [ref=e410]:
+                    - textbox [ref=e411]: Add copy button
+                    - button "Remove task" [ref=e412]:
+                      - img
+                      - generic [ref=e413]: Remove task
+          - generic [ref=e414]:
+            - generic [ref=e415]:
+              - generic [ref=e416]:
+                - generic [ref=e417]: Plan section
+                - generic [ref=e418]: Risks And Edge Cases
+                - generic [ref=e419]: Track likely pitfalls before implementation.
+              - button "Add" [ref=e420]:
+                - img
+                - text: Add
+            - generic [ref=e421]:
+              - generic [ref=e422]:
+                - button "Remove" [ref=e424]:
+                  - img
+                  - text: Remove
+                - generic [ref=e425]:
+                  - generic [ref=e426]: Title
+                  - textbox "Title" [ref=e427]: Over-scoped launch
+                - generic [ref=e428]:
+                  - generic [ref=e429]: Mitigation
+                  - textbox "Mitigation" [ref=e430]: Force must-have vs nice-to-have prioritization.
+              - generic [ref=e431]:
+                - button "Remove" [ref=e433]:
+                  - img
+                  - text: Remove
+                - generic [ref=e434]:
+                  - generic [ref=e435]: Title
+                  - textbox "Title" [ref=e436]: Lost local draft
+                - generic [ref=e437]:
+                  - generic [ref=e438]: Mitigation
+                  - textbox "Mitigation" [ref=e439]: Encourage copy/export after generation.
+          - generic [ref=e440]:
+            - generic [ref=e441]:
+              - generic [ref=e442]:
+                - generic [ref=e443]: Starter Prompt
+                - generic [ref=e444]: Copy this into a coding agent, then refine after any edits.
+              - button "Copied" [active] [ref=e451]:
+                - img
+                - text: Copied
+            - textbox [ref=e447]: Build Launch Ledger as a small Next.js app with editable planning cards, local draft persistence, and a copyable launch brief.
+  - alert [ref=e448]

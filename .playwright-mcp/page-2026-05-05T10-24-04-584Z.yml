@@ -1,0 +1,64 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - generic [ref=e8]:
+            - img [ref=e10]
+            - generic:
+              - img
+              - text: Structured streaming
+            - generic [ref=e13]: Editable blueprint generator
+          - generic [ref=e14]:
+            - heading "Draft the build before the build drafts you." [level=1] [ref=e15]
+            - paragraph [ref=e16]: A live AI planning desk that turns a raw app idea into editable strategy cards, route maps, data models, build phases, and a copy-ready agent prompt.
+        - generic [ref=e17]:
+          - generic [ref=e18]: Default model
+          - generic [ref=e19]: anthropic/claude-sonnet-4.6
+          - generic [ref=e20]:
+            - generic [ref=e21]:
+              - generic [ref=e22]: NDJSON
+              - generic [ref=e23]: Stream
+            - generic [ref=e24]:
+              - generic [ref=e25]: Local
+              - generic [ref=e26]: Draft
+            - generic [ref=e27]:
+              - generic [ref=e28]: Live
+              - generic [ref=e29]: Graph
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - generic [ref=e33]:
+              - generic [ref=e34]:
+                - img [ref=e35]
+                - text: App Idea
+              - generic [ref=e38]: Describe the app in plain language. Existing valid drafts are sent as optional context.
+            - generic [ref=e39]:
+              - 'textbox "Example: A lightweight project planner for solo founders who need a scoped MVP plan before coding." [ref=e40]'
+              - generic [ref=e41]:
+                - button "A meal planning app for busy parents that creates weekly grocery lists" [ref=e42]
+                - button "A small CRM for freelance designers to track leads and project phases" [ref=e43]
+                - button "A habit tracker for remote teams with lightweight accountability rituals" [ref=e44]
+              - generic [ref=e71]:
+                - img [ref=e72]
+                - generic [ref=e74]: Enter an app idea before generating a brief.
+              - generic [ref=e45]:
+                - button "Generate Brief" [active] [ref=e46]:
+                  - img
+                  - text: Generate Brief
+                - button "Reset" [ref=e47]:
+                  - img
+                  - text: Reset
+              - paragraph [ref=e48]: Drafts save locally in this browser only. The API key stays server-side.
+          - generic [ref=e49]:
+            - generic [ref=e50]:
+              - generic [ref=e51]:
+                - img [ref=e52]
+                - text: Data Model Graph
+              - generic [ref=e56]: Read-only visualization derived from the editable data model and relationships.
+            - generic [ref=e70]: Generate or edit a data model to render the relationship graph.
+        - generic [ref=e62]:
+          - img [ref=e64]
+          - heading "Your brief will stream in here." [level=2] [ref=e67]
+          - paragraph [ref=e68]: Enter an idea and generate a full editable plan. Sections appear as cards as soon as structured data arrives.
+  - alert [ref=e69]

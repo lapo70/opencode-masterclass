@@ -12,4 +12,6 @@ The app should let a user enter a rough app idea, then generate an editable proj
 - risks/edge cases
 - final copyable starter prompt for a coding agent
 
-Keep the scope small: no auth, no database, no payments. Use Next.js, Tailwind, and shadcn/ui. For now, plan the architecture, components, routes, data flow, and implementation steps. Also suggest how we can later integrate the OpenAI SDK for inference.
+Keep the scope small: no auth, no database, no payments. Use Next.js, Tailwind, and shadcn/ui. For now, plan the architecture, components, routes, data flow, and implementation steps. We will be using the AI SDK with OpenRouter for inteference.
+
+For the data model, it would be cool if you could visualize the relationship between the different entities as well (perhaps reactflow or something).
