@@ -1,21 +1,20 @@
 <#
 .SYNOPSIS
-    Resiza alla JPG-bilder i en mapp (inklusive undermappar) och spara till en ny mapp.
+    Resiza alla bilder i en mapp (inklusive undermappar) och spara till en ny mapp.
 .DESCRIPTION
-    Behåller mappstrukturen. Standardstorlek: 1920px bredd (höjd anpassas).
+    Behåller mappstrukturen. Långsidan på bilderna sätts till angivet värde.
+    T.ex. 1920 = liggande 1920×1080, stående 1080×1920 (proportionellt).
 .PARAMETER Source
     Sökväg till källmappen (t.ex. C:\Users\pavpl553\Desktop\fåglar)
 .PARAMETER Destination
     Sökväg till målmappen (t.ex. C:\Users\pavpl553\Desktop\fåglar-resized)
-.PARAMETER MaxWidth
-    Max bredd i pixlar (standard: 1920)
-.PARAMETER MaxHeight
-    Max höjd i pixlar (standard: 1080)
+.PARAMETER MaxLongSide
+    Långsidans maxlängd i pixlar (standard: 1920)
 .PARAMETER Quality
     JPEG-kvalitet 1-100 (standard: 85)
 .EXAMPLE
     .\resize-images.ps1 -Source "C:\Users\pavpl553\Desktop\gallery" -Destination "C:\Users\pavpl553\Desktop\gallery-resized"
-    .\resize-images.ps1 -Source "C:\Users\pavpl553\Desktop\gallery" -Destination "C:\Users\pavpl553\Desktop\gallery-resized" -MaxWidth 2560 -MaxHeight 1440 -Quality 90
+    .\resize-images.ps1 -Source "C:\Users\pavpl553\Desktop\gallery" -Destination "C:\Users\pavpl553\Desktop\gallery-resized" -MaxLongSide 800 -Quality 90
 #>
 
 param(
@@ -25,8 +24,7 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$Destination,
 
-    [int]$MaxWidth = 1920,
-    [int]$MaxHeight = 1080,
+    [int]$MaxLongSide = 1920,
     [int]$Quality = 85
 )
 
@@ -74,7 +72,8 @@ foreach ($file in $files) {
     try {
         $img = [System.Drawing.Image]::FromFile($file.FullName)
 
-        if ($img.Width -le $MaxWidth -and $img.Height -le $MaxHeight) {
+        $longSide = [math]::Max($img.Width, $img.Height)
+        if ($longSide -le $MaxLongSide) {
             # Bilden är redan tillräckligt liten - kopiera bara
             $img.Dispose()
             Copy-Item -LiteralPath $file.FullName -Destination $targetPath -Force
@@ -82,8 +81,8 @@ foreach ($file in $files) {
             continue
         }
 
-        # Beräkna proportioner
-        $ratio = [math]::Min($MaxWidth / $img.Width, $MaxHeight / $img.Height)
+        # Beräkna proportioner — långsidan = MaxLongSide
+        $ratio = $MaxLongSide / $longSide
         $newWidth = [math]::Round($img.Width * $ratio)
         $newHeight = [math]::Round($img.Height * $ratio)
 
