@@ -90,11 +90,7 @@ foreach ($file in $files) {
             continue
         }
 
-        $resized = New-Object System.Drawing.Bitmap($newW, $newH)
-        $gfx = [System.Drawing.Graphics]::FromImage($resized)
-        $gfx.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
-        $gfx.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
-        $gfx.DrawImage($img, 0, 0, $newW, $newH)
+        $resized = New-Object System.Drawing.Bitmap($img, $newW, $newH)
 
         $encParams = New-Object System.Drawing.Imaging.EncoderParameters(1)
         $encParams.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter([System.Drawing.Imaging.Encoder]::Quality, $Quality)
@@ -102,7 +98,6 @@ foreach ($file in $files) {
 
         $resized.Save($outputPath, $jpegCodec, $encParams)
 
-        $gfx.Dispose()
         $resized.Dispose()
         $img.Dispose()
 
