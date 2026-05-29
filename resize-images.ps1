@@ -82,9 +82,11 @@ foreach ($file in $files) {
         $newW = [math]::Round($img.Width * $ratio)
         $newH = [math]::Round($img.Height * $ratio)
 
-        if ($newW -lt 1 -or $newH -lt 1) {
+        Write-Host "  [DEBUG] $relative - original: $($img.Width)x$($img.Height), ratio=$ratio, ny: ${newW}x${newH}" -ForegroundColor Yellow
+
+        if ($newW -lt 1 -or $newH -lt 1 -or $newW -gt 10000 -or $newH -gt 10000) {
             $img.Dispose()
-            Write-Host "  [HOPPAR] $relative - dimensioner for sma (${newW}x${newH})" -ForegroundColor DarkGray
+            Write-Host "  [HOPPAR] $relative - ogiltiga dimensioner (${newW}x${newH})" -ForegroundColor DarkGray
             continue
         }
 
