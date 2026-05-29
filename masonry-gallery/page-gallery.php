@@ -18,7 +18,8 @@ get_header();
         <?php if (empty($images)) : ?>
             <p class="no-images">Inga bilder hittades i denna mapp.</p>
         <?php else : ?>
-            <div class="masonry-grid">
+            <?php $cols = min(count($images), 4); ?>
+            <div class="masonry-grid" style="column-count: <?php echo $cols; ?>">
                 <?php foreach ($images as $image) : ?>
                     <div class="masonry-item">
                         <a href="<?php echo esc_url($image['url']); ?>" class="gallery-link">
