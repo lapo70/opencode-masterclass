@@ -61,6 +61,12 @@ foreach ($file in $files) {
     $pct = [math]::Round(($count / $total) * 100)
     Write-Progress -Activity "Resizar bilder" -Status "$count / $total ($pct procent)" -CurrentOperation $relative -PercentComplete $pct
 
+    # Hoppa over format som System.Drawing inte stoder
+    if ($file.Extension -match '\.(webp|avif|heic|heif)$') {
+        Write-Host "  [HOPPAR] $relative - format stods inte" -ForegroundColor DarkGray
+        continue
+    }
+
     try {
         $img = [System.Drawing.Image]::FromFile($file.FullName)
 
@@ -75,6 +81,12 @@ foreach ($file in $files) {
         $ratio = $MaxLongSide / $longSide
         $newW = [math]::Round($img.Width * $ratio)
         $newH = [math]::Round($img.Height * $ratio)
+
+        if ($newW -lt 1 -or $newH -lt 1) {
+            $img.Dispose()
+            Write-Host "  [HOPPAR] $relative - dimensioner for sma (${newW}x${newH})" -ForegroundColor DarkGray
+            continue
+        }
 
         $resized = New-Object System.Drawing.Bitmap($newW, $newH)
         $gfx = [System.Drawing.Graphics]::FromImage($resized)
