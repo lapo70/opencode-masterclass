@@ -95,7 +95,7 @@ foreach ($file in $files) {
         Write-Host "  [OK] $relative - ${newW}x${newH}" -ForegroundColor Green
     } catch {
         $errors++
-        Write-Host "  [FEL] $relative" -ForegroundColor Red
+        Write-Host "  [FEL] $relative : $_" -ForegroundColor Red
     }
 }
 
