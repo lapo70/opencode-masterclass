@@ -106,13 +106,16 @@ body {
 .masonry-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
 .masonry-grid.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
 
+
+
 .masonry-item {
-    display: block;
-    line-height: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .masonry-item img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
     border-radius: 8px;

@@ -56,7 +56,7 @@ get_header();
         <?php if (empty($page_folders)) : ?>
             <p class="no-images">Inga album hittades. Lägg till mappar i <code><?php echo esc_html(str_replace(ABSPATH, '', MASONRY_GALLERY_PATH)); ?></code></p>
         <?php else : ?>
-            <div class="masonry-grid">
+            <div class="masonry-grid cols-4">
                 <?php foreach ($page_folders as $folder_name) :
                     $random_image = masonry_get_random_image($folder_name);
                 ?>
