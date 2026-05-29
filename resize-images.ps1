@@ -67,7 +67,8 @@ foreach ($file in $files) {
 
     $count++
     $percent = [math]::Round(($count / $total) * 100)
-    Write-Progress -Activity "Resizar bilder" -Status ("{0} / {1} ({2}%)" -f $count, $total, $percent) -CurrentOperation $relative -PercentComplete $percent
+    $pct = "$percent`%"
+Write-Progress -Activity "Resizar bilder" -Status "$count / $total ($pct)" -CurrentOperation $relative -PercentComplete $percent
 
     try {
         $img = [System.Drawing.Image]::FromFile($file.FullName)
