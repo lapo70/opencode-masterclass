@@ -59,6 +59,14 @@ foreach ($file in $files) {
         New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
     }
 
+    $targetPath = Join-Path -Path $targetDir -ChildPath ([System.IO.Path]::ChangeExtension($file.Name, '.jpg'))
+
+    # Hoppa över om filen redan finns
+    if (Test-Path -LiteralPath $targetPath) {
+        Write-Host "  [HOPPAR] $relative — finns redan" -ForegroundColor DarkGray
+        continue
+    }
+
     $count++
     $percent = [math]::Round(($count / $total) * 100)
     Write-Progress -Activity "Resizar bilder" -Status "$count / $total ($percent%)" -CurrentOperation $relative -PercentComplete $percent
@@ -69,7 +77,7 @@ foreach ($file in $files) {
         if ($img.Width -le $MaxWidth -and $img.Height -le $MaxHeight) {
             # Bilden är redan tillräckligt liten - kopiera bara
             $img.Dispose()
-            Copy-Item -LiteralPath $file.FullName -Destination $targetFile -Force
+            Copy-Item -LiteralPath $file.FullName -Destination $targetPath -Force
             Write-Host "  [KOPIA] $relative" -ForegroundColor Gray
             continue
         }
@@ -95,7 +103,6 @@ foreach ($file in $files) {
             $_.FormatDescription -eq 'JPEG'
         }
 
-        $targetPath = [System.IO.Path]::ChangeExtension($targetFile, '.jpg')
         $resized.Save($targetPath, $jpegCodec, $encoderParams)
 
         $graphics.Dispose()
