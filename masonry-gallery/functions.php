@@ -62,6 +62,12 @@ function masonry_get_random_image($folder) {
     return $images[array_rand($images)];
 }
 
+function masonry_search_folders($folders, $query) {
+    if (empty(trim($query))) return $folders;
+    $query = mb_strtolower(trim($query));
+    return array_values(array_filter($folders, fn($f) => mb_strpos(mb_strtolower($f), $query) !== false));
+}
+
 function masonry_get_adjacent_folder($current_folder, $direction = 'next') {
     $folders = masonry_get_folders();
     $key = array_search($current_folder, $folders);

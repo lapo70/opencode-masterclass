@@ -205,6 +205,38 @@ body {
     font-size: 0.9rem;
 }
 
+/* Search */
+.gallery-search {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    padding: 8px 14px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    width: 300px;
+    max-width: 100%;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    border-color: #333;
+    outline: none;
+}
+
+.search-result-count {
+    text-align: center;
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
 /* Folder navigation */
 .folder-nav,
 .pagination {

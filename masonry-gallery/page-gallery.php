@@ -43,6 +43,10 @@ get_header();
         </nav>
 
     <?php else :
+        $search_query = isset($_GET['q']) ? trim($_GET['q']) : '';
+        if ($search_query) {
+            $folders = masonry_search_folders($folders, $search_query);
+        }
         $per_page = 20;
         $total_folders = count($folders);
         $total_pages = max(1, ceil($total_folders / $per_page));
@@ -52,6 +56,20 @@ get_header();
     ?>
         <h2 class="gallery-title">Galleri</h2>
         <p class="gallery-subtitle">Välj ett album (<?php echo $total_folders; ?> album totalt)</p>
+
+        <form class="gallery-search" method="get" action="<?php echo esc_url($base_url); ?>">
+            <input type="text" name="q" class="search-input" placeholder="Sök album..." value="<?php echo esc_attr($search_query); ?>">
+            <button type="submit" class="btn">Sök</button>
+            <?php if ($search_query) : ?>
+                <a href="<?php echo esc_url($base_url); ?>" class="btn btn-small">Rensa</a>
+            <?php endif; ?>
+        </form>
+
+        <?php if ($search_query) : ?>
+            <p class="search-result-count">
+                <?php echo $total_folders; ?> album matchade "<?php echo esc_html($search_query); ?>"
+            </p>
+        <?php endif; ?>
 
         <?php if (empty($page_folders)) : ?>
             <p class="no-images">Inga album hittades. Lägg till mappar i <code><?php echo esc_html(str_replace(ABSPATH, '', MASONRY_GALLERY_PATH)); ?></code></p>
