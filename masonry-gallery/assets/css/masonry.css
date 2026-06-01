@@ -218,6 +218,7 @@ body {
 .search-input {
     padding: 8px 14px;
     font-size: 1rem;
+    line-height: 1.4;
     border: 2px solid #ddd;
     border-radius: 4px;
     width: 300px;
@@ -228,6 +229,18 @@ body {
 .search-input:focus {
     border-color: #333;
     outline: none;
+}
+
+.gallery-search .btn {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 8px 16px;
+}
+
+.gallery-search .btn-small {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 8px 16px;
 }
 
 .search-result-count {
